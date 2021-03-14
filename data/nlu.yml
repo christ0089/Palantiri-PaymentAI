@@ -94,21 +94,6 @@ nlu:
     - ella luego
 
 
-  examples: |
-    - en que consiste el beneficio?
-    - que es eso 
-    - que es el beneficio
-    - como me apoya el beneficio
-    - como funciona
-    - y que es
-    - oiga que es eso
-    - pues como jala
-    - y como me van a atender
-    - que es
-    - cómo funciona
-    - cuénta me cómo funciona aquí
-    - y cómo funciona esto
-    - cómo funciona esto
 #
 # General Response Data
 #
@@ -436,13 +421,133 @@ nlu:
     - cuánto cuesta
     - cuánto sale
     - oye cuánto cuesta
+
+- intent: handover
+  examples: |
+    - Me pude expplicar la cobertura de la póliza
+    - Me pude expplicar la cobertura de la póliza, po favor
+    - Puedo ir al hospital Santa María que esta qui en la ciudad
+    - Si tengo una emergencia que hago
+    - Cual es su celuar por si tengo alguna duda
+    - A que telefno le peudo marcar si tengo una duda
+    - Me puede explicar como funciona la póliza
+    - A que hospitales puedo ir en caso de emergencia
+    - A que hospitales puedo ir en caso de un accidente
+    - quiero hablar con alguien
+    - comunicame con mi agente
+    - quiero hablar con mi agente
+    - donde esta mi agente
+    - oiga y quiero hablar con alguien
 #
 # Payment Data
 #
 # En que consiste el Beneficio
 - intent: how_it_works
+  examples: |
+    - en que consiste el beneficio?
+    - que es eso 
+    - que es el beneficio
+    - como me apoya el beneficio
+    - como funciona
+    - y que es
+    - oiga que es eso
+    - pues como jala
+    - y como me van a atender
+    - que es
+    - cómo funciona
+    - cuénta me cómo funciona aquí
+    - y cómo funciona esto
+    - cómo funciona esto
 # Cual es mi saldo
 - intent: payment_amount_info
+  examples: |
+    - cuanto debo
+    - cuanto debo pagar
+    - cuanto voy a pagar este mes
+    - de cuánto es la cantidad
+    - cuánto es la mensualidad
+    - sí la mensualidad
+    - Cuanto es lo que tengo que pagar
+    - Cuanto dijo que debo pagar
+    - Cuanto dijo que sale la mensualidad
+    - Cuánto dijo que debo pagar este mes
+    - Me repite la cantidad
+    - Me repite la cantidad, por favor
+    - Que me dijo Cuanto es
+    - Cuanto sale, Señorita
+    - Como dijo Cuanto sale
+    - Como dijo Cuanto sale, Señorita
+    - No le entendí, de cuanto es la mensualidad de la póliza
+    - No le entendí, de cuanto dijo que es la mensualidad de la póliza
+    - No le entendí, de cuanto dijo que es el pago de la póliza
+    - No le entendí, de cuanto dijo que es el pago de este mes
+    - No le entendí, de cuanto dijo que es el pago
+    - No le entendí, Cuanto dijo
+    - No le entendí, Cuánto dijo que era
+    - No le entendí, Cuánto dijo que era la  mensualidad
+    - No entendí, Cuanto dijo que debo pagar
+    - No le entendí, Me repite la cantidad
+    - No le entendí, Me repite la cantidad por favor
+    - No entendí, Cuanto es lo que tengo que pagar
+    - No le entendí, Como dijo Cuanto sale
+    - No le entendí, Como dijo que sale
+    - No le entendí, En cuanto dijo que sale
+    - No le entendí, En cuanto sale
+    - Perdón, de cuanto es la mensualidad de la póliza
+    - Perdón, de cuanto dijo que es la mensualidad de la póliza
+    - Perdón, de cuanto dijo que es el pago de la póliza
+    - Perdón, de cuanto dijo que es el pago de este mes
+    - Perdón, de cuanto dijo que es el pago
+    - Perdón, Cuanto dijo
+    - Perdón, Cuánto dijo que era
+    - Perdón, Cuánto dijo que era la  mensualidad
+    - Perdón, Cuanto dijo que debo pagar
+    - Perdón, Me repite la cantidad
+    - Perdón, Me repite la cantidad por favor
+    - Perdón, Cuanto es lo que tengo que pagar
+    - Perdón, Como dijo Cuanto sale
+    - Perdón, Como dijo que sale
+    - Perdón,En cuanto dijo que sale
+    - Perdón,En cuanto sale
+    - Como dijo, de cuanto es la mensualidad de la póliza
+    - Como dijo, de cuanto dijo que es la mensualidad de la póliza
+    - Como dijo, de cuanto dijo que es el pago de la póliza
+    - Como dijo, de cuanto dijo que es el pago de este mes
+    - Como dijo, de cuanto dijo que es el pago
+    - Como dijo, Cuanto dijo
+    - Cómo dijo, Cuánto dijo que era
+    - Cómo dijo, Cuánto dijo que era la  mensualidad
+    - Cómo Dijo, Cuanto dijo que debo pagar
+    - Cómo dijo Me repite la cantidad
+    - Cómo dijo Me repite la cantidad por favor
+    - Como Dijo, Cuanto es lo que tengo que pagar
+    - Cómo dijo Como dijo Cuanto sale
+    - Cómo dijo Como dijo que sale
+    - Cómo dijo En cuanto dijo que sale
+    - Cómo dijo En cuanto sale
+    - Señorita, me puede repetir
+    - Señorita, de cuanto es la mensualidad de la póliza
+    - Señorita, de cuanto dijo que es la mensualidad de la póliza
+    - Señorita, de cuanto dijo que es el pago de la póliza
+    - Señorita, de cuanto dijo que es el pago de este mes
+    - Señorita, de cuanto dijo que es el pago
+    - Señorita, Cuánto dijo que era la  mensualidad
+    - Señorita, Cuanto dijo que debo pagar
+    - Señorita, Me repite la cantidad
+    - Señorita, Me repite la cantidad por favor
+    - Señorita, Cuanto es lo que tengo que pagar
+    - Señorita, Como dijo Cuanto sale
+    - Señorita, Como dijo que sale
+    - Señorita, En cuanto dijo que sale
+    - Señorita, En cuanto sale
+    - buenas tardes me podría dar el monto a pagar
+    - cuánto se debe
+    - este cuánto se debe
+    - cuánto es de este mes
+    - cuanto es mi saldo
+    - cuale es mi saldo 
+    - me puedes decir mi saldo actual
+    - de mi saldo cuanto se debe pagar
 # Hasta cuando tengo para pagar sin que cambie mi saldo
 - intent: payment_date_info
   examples: |
@@ -516,7 +621,6 @@ nlu:
     - No puedo realizar el pago completo
     - Puedo dar un abono
     - Si no completo el monto, puedo realizar un abono
-    - 
 # No quiere realizar el pago
 - intent: payment_deny
   examples: |

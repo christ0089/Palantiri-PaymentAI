@@ -1,3 +1,4 @@
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
@@ -32,18 +33,6 @@ entities:
 - time
 - bots
 slots:
-  Acity:
-    type: text
-    influence_conversation: true
-  Bdbo:
-    type: any
-    influence_conversation: false
-  Cmaternity:
-    type: text
-    influence_conversation: false
-  Dappointment:
-    type: text
-    influence_conversation: false
   # Data to query from customer
   name:
     type: text
@@ -87,27 +76,35 @@ responses:
       status: handover
     text: En estos lo comunicaremos con un agente para resolver estas dudas.
   utter_payment_info:
-  - text: El pago se puedre realizr en cuanquier tienda Cimaco, en www.cimaco.com o en bancos.
+  - text: El pago se puedre realizar en cuanquier tienda Cimaco, en www.cimaco.com o en bancos. Cual es alguna otra duda que le puedo resolver?
   utter_payment_ammount_info:
   - custom:
       status: handover
     text: En estos lo comunicaremos con un agente para resolver estas dudas.
   utter_payment_date_info:
-  - custom:
-      status: handover
-    text: Al presentar saldo vencido se requiere el pago inmediato.
+  - text: Al presentar saldo vencido se requiere el pago inmediato. Cual es alguna otra duda que le puedo resolver?
   utter_payment_partial:
-    text: Si es posible dar un pago parcial, pero el beneficio aplica hasta que el saldo vencido se liquide completamente.
+  - text: Si es posible dar un pago parcial, pero el beneficio aplica hasta que el saldo vencido se liquide completamente.
+  utter_payment_done:
+    - text: Muchas gracias por su pago y disculpa las molestias.
   utter_submit:
   - custom:
       status: handover
       payment: success
     text: Pefecto es esto momento lo comunicaremos con un agente.
-
+## Agent Handover
+  utter_handover:
+  - custom:
+      status: handover
+    text: En unos momentos te comunicaremos con un agente para atenderle.
+## Other questions
+  utter_question:
+  - text: Tiene alguna otra con la que lo pueda ayudar?
+  utter_question_start:
+  - text: Cuales son las dudas que le puedo resolver?
 actions:
 - action_slot_reset
 - action_slot_query
 - action_session_start
-forms:
 
  

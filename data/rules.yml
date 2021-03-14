@@ -1,8 +1,8 @@
 
 version: "2.0"
 rules:
-## Fallback 
-#
+## 
+# Fallback
 #
 - rule: Ask the user to rephrase whenever they send a message with low NLU confidence
   steps:
@@ -17,14 +17,18 @@ rules:
   steps:
   - intent: greet
   - action: utter_greet
-
+  - action: utter_question
+- rule: Check if the user has any question
+  steps:
+  - intent: confirm
+  - action: utter_question_start
 #
 # Payment Responses
 #
-- rule: Payment Intent data
+- rule: Payment Info
   steps:
-  - intent: payment_intent
-  - action: utter_payment_intent
+  - intent: payment_info
+  - action: utter_payment_info
 #
 #
 #
@@ -35,10 +39,17 @@ rules:
 #
 #
 #
-- rule: Say payment date
+- rule: Say payment Date
   steps:
   - intent: payment_date_info
   - action: utter_payment_date_info
+#
+#
+#
+- rule: Say payment Done
+  steps:
+  - intent: payment_done
+  - action: utter_payment_done
 #
 # Payment was set
 #
@@ -56,10 +67,6 @@ rules:
   steps:
   - intent: payment_date_info
   - action: utter_payment_date_info
-- rule: Say payment date
-  steps:
-  - intent: payment_info
-  - action: utter_payment_info
 #
 # Handover to Agent
 #
@@ -72,61 +79,61 @@ rules:
 ## Forms Submit
 ##
 ##
-- rule: Submit form payment accept
-  condition:
-  - active_loop: payment_form
-  steps:
-  - action: payment_form
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - action: action_new_policy_message
-- rule: Submit form payment reject
-  condition:
-  - active_loop: reject_payment_form
-  steps:
-  - action: reject_payment_form
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - action: utter_payment_reject
-##
-##
-## Forms Init
-##
-##
-- rule: Start form payment accept
-  condition:
-  - slot_was_set:
-    - accept_payment: null
-  steps:
-  - intent: confirm
-  - action: utter_payment_accept
-  - action: payment_form
-  - active_loop: payment_form
-- rule: Start form payment accept
-  condition:
-  - slot_was_set:
-    - accept_payment: null
-  steps:
-  - intent: payment_done
-  - action: utter_payment_accept
-  - action: payment_form
-  - active_loop: payment_form
+# - rule: Submit form payment accept
+#   condition:
+#   - active_loop: payment_form
+#   steps:
+#   - action: payment_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   - action: action_new_policy_message
+# - rule: Submit form payment reject
+#   condition:
+#   - active_loop: reject_payment_form
+#   steps:
+#   - action: reject_payment_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   - action: utter_payment_reject
+# ##
+# ##
+# ## Forms Init
+# ##
+# ##
+# - rule: Start form payment accept
+#   condition:
+#   - slot_was_set:
+#     - accept_payment: null
+#   steps:
+#   - intent: confirm
+#   - action: handover
+#   - action: payment_form
+#   - active_loop: payment_form
+# - rule: Start form payment accept
+#   condition:
+#   - slot_was_set:
+#     - accept_payment: null
+#   steps:
+#   - intent: payment_done
+#   - action: utter_payment_accept
+#   - action: payment_form
+#   - active_loop: payment_form
 
-- rule: Start form payment reject
-  condition:
-  - slot_was_set:
-    - accept_payment: null
-  steps:
-  - intent: deny
-  - action: reject_payment_form
-  - active_loop: reject_payment_form
-- rule: Start form payment reject
-  condition:
-  - slot_was_set:
-    - accept_payment: null
-  steps:
-  - intent: payment_deny
-  - action: reject_payment_form
-  - active_loop: reject_payment_form
+# - rule: Start form payment reject
+#   condition:
+#   - slot_was_set:
+#     - accept_payment: null
+#   steps:
+#   - intent: deny
+#   - action: reject_payment_form
+#   - active_loop: reject_payment_form
+# - rule: Start form payment reject
+#   condition:
+#   - slot_was_set:
+#     - accept_payment: null
+#   steps:
+#   - intent: payment_deny
+#   - action: reject_payment_form
+#   - active_loop: reject_payment_form
