@@ -1,5 +1,8 @@
 version: "2.0"
 nlu:
+#
+# Greetings 
+#
 - intent: greet
   examples: |
     - hola
@@ -89,8 +92,13 @@ nlu:
     - cuelgo bye
     - ya me voy nos vemos
     - ella luego
-- intent: how_it_works
+
+
   examples: |
+    - en que consiste el beneficio?
+    - que es eso 
+    - que es el beneficio
+    - como me apoya el beneficio
     - como funciona
     - y que es
     - oiga que es eso
@@ -101,6 +109,9 @@ nlu:
     - cuénta me cómo funciona aquí
     - y cómo funciona esto
     - cómo funciona esto
+#
+# General Response Data
+#
 - intent: repeat_question
   examples: |
     - me lo podrías repetir
@@ -128,144 +139,9 @@ nlu:
     - oye pero me equivoqué
     - me equivoqué
     - oye me equivoqué perdón
-- intent: city_of_origin
-  examples: |
-    - soy de [la laguna](city)
-    - de [Gomez](city) coahuila
-    - de [Gomez](city) durango
-    - soy de aqui de [Gomez](city)
-    - estoy en [Torres](city)
-    - vivo en [Gomez](city)
-    - yo vivo en [Gomez](city)
-    - [Gomez](city)
-    - en [Gomez](city) vivo
-    - soy de aqui
-    - vivo aqui
-    - naci en [Gomez](city)
-    - naci aqui
-    - me criaron en [Gomez](city)
-    - de aqui
-    - estoy aqui en [Gomez](city)
-    - me ubico en [Gomez](city)
-    - mi casa esta [Gomez](city)
-    - actualmente vivo en [Gomez](city)
-    - actualmente estoy en [Torreon](city)
-    - mi dirrecion es de [La Laguna](city)
-    - redico en [Gomez](city)
-    - soy residente de [Gomez](city)
-    - bien soy de [Gomez](city)
-    - mi direccion es de [Matamoros](city)
-    - la direccion de [Gomez](city)
-    - resido en [Gomez](city)
-    - mi ubiacion es en [Gomez](city)
-    - aqui me ubico
-    - soy de [Gomez](city)
-    - resido aqui
-    - [Torreon](city)
-    - naci en [torreon](city)
-    - en [la laguna]{"entity": "city", "value": "torreon"}
-    - soy de [torreon](city)
-    - de [la laguna]{"entity": "city", "value": "torreon"}
-    - de [torreon](city)
-    - naci en [Torreon](city)
-    - vivo en [torreon](city)
-    - de [Torreon](city)
-    - soy david charekh además en [torreón](city)
-    - en [torreón](city)
-    - yo soy de [la laguna]{"entity": "city", "value": "torreon"}
-    - yo vivo en [torreón](city)
-    - yo estoy en [la laguna]{"entity": "city", "value": "torreon"}
-    - sí a [torreón](city)
-    - vivo en [torreón](city)
-    - en [torreón](city) coahuila
-    - de [Monclova](city)
-    - en [Torreon](city)
-    - soy de [Monclova](city)
-    - en [torreal](city)
-    - en [la perla de la laguna](city)
-    - si estoy en [torreón](city)
-    - yo vivo en [torreón](city) coahuila
-    - soy de [monclova](city)
-    - vivo en [torreón](city) coahuila méxico
-    - sí es soy de [gómez](city)
-    - estoy en [la laguna]{"entity": "city", "value": "torreon"}
-    - vivo en [torreón](city) coahuila
-- intent: cost
-  examples: |
-    - cual es el costo
-    - cual es el precio
-    - precio?
-    - y esto cuanto cuesta
-    - me van a cobrar
-    - me lo van a regalar
-    - costo
-    - como me van a cobrar
-    - cuesta
-    - como cuesta
-    - que costo
-    - valor
-    - cuanto valor
-    - porfavor valor
-    - y cual es el valor
-    - cuanto cuesta
-    - porfa precio
-    - porfavor precio
-    - y que como me van a cobrar porfavor
-    - y que me cuesta de favor
-    - como precio
-    - y que me me van a cobrar porfavor
-    - porfavor costo
-    - cuesta podria decir
-    - que me lo van a regalar podria
-    - y que me costo de favor
-    - cuanto cuesta podria decir
-    - que me lo van a regalar
-    - que me lo van a regalar de favor
-    - podria decir cuesto
-    - costo porfavor
-    - y que me precio tiene porfavor
-    - y que me me van a cobrar
-    - como cuesta podria decir
-    - cuanto costo porfa
-    - cuanto sale la poliza
-    - cuanto sale
-    - cual es el valor
-    - porfavor cuanto sale la poliza
-    - precio tiene porfavor
-    - que precio tiene porfavor
-    - y que me me van a cobrar podria decir
-    - me van a cobrar porfa
-    - que me lo van a regalar porfavor
-    - cuanto precio tiene podria decir
-    - y que me cuesta
-    - y que me precio tiene
-    - como precio tiene porfa
-    - cuanto precio tiene de favor
-    - que me van a cobrar porfa
-    - cuanto me lo van a regalar podria decir
-    - podria decir costo
-    - cual precio podria decir
-    - como me lo van a regalar
-    - y que me me van a cobrar de favor
-    - como me van a cobrar de favor
-    - me van a cobrar podria decir
-    - me van a cobrar podria
-    - costo porfavor diga
-    - me lo van a regalar podria decir
-    - podria decir si me van a cobrar
-    - cuanto cuesta podria
-    - precio tiene podria decir
-    - y que me cuesta porfavor
-    - como costo porfa
-    - como costo porfavor
-    - cuanto costo podria decir
-    - cuanto costo podria
-    - como me van a cobrar porfa
-    - cuanto precio tiene porfavor
-    - que precio
-    - cuánto cuesta
-    - cuánto sale
-    - oye cuánto cuesta
+#
+# Confirmation and Deny Intents
+#
 - intent: confirm
   examples: |
     - si
@@ -478,19 +354,176 @@ nlu:
     - el [12](time) de junio
     - en [1996](time)
     - para pasado [mañana](time)
-- synonym: torreon
-  examples: |
-    - la laguna
-    - torres
-    - lagunero
-    - perla de la laguna
-    - capital de la plata
-    - laguan
-    - la laguan
-    - la perla de la laguna
 - synonym: bots
   examples: |
     - skynet
     - siri
     - alexa
     - google home
+- intent: cost
+  examples: |
+    - cual es el costo
+    - cual es el precio
+    - precio?
+    - y esto cuanto cuesta
+    - me van a cobrar
+    - me lo van a regalar
+    - costo
+    - como me van a cobrar
+    - cuesta
+    - como cuesta
+    - que costo
+    - valor
+    - cuanto valor
+    - porfavor valor
+    - y cual es el valor
+    - cuanto cuesta
+    - porfa precio
+    - porfavor precio
+    - y que como me van a cobrar porfavor
+    - y que me cuesta de favor
+    - como precio
+    - y que me me van a cobrar porfavor
+    - porfavor costo
+    - cuesta podria decir
+    - que me lo van a regalar podria
+    - y que me costo de favor
+    - cuanto cuesta podria decir
+    - que me lo van a regalar
+    - que me lo van a regalar de favor
+    - podria decir cuesto
+    - costo porfavor
+    - y que me precio tiene porfavor
+    - y que me me van a cobrar
+    - como cuesta podria decir
+    - cuanto costo porfa
+    - cuanto sale la poliza
+    - cuanto sale
+    - cual es el valor
+    - porfavor cuanto sale la poliza
+    - precio tiene porfavor
+    - que precio tiene porfavor
+    - y que me me van a cobrar podria decir
+    - me van a cobrar porfa
+    - que me lo van a regalar porfavor
+    - cuanto precio tiene podria decir
+    - y que me cuesta
+    - y que me precio tiene
+    - como precio tiene porfa
+    - cuanto precio tiene de favor
+    - que me van a cobrar porfa
+    - cuanto me lo van a regalar podria decir
+    - podria decir costo
+    - cual precio podria decir
+    - como me lo van a regalar
+    - y que me me van a cobrar de favor
+    - como me van a cobrar de favor
+    - me van a cobrar podria decir
+    - me van a cobrar podria
+    - costo porfavor diga
+    - me lo van a regalar podria decir
+    - podria decir si me van a cobrar
+    - cuanto cuesta podria
+    - precio tiene podria decir
+    - y que me cuesta porfavor
+    - como costo porfa
+    - como costo porfavor
+    - cuanto costo podria decir
+    - cuanto costo podria
+    - como me van a cobrar porfa
+    - cuanto precio tiene porfavor
+    - que precio
+    - cuánto cuesta
+    - cuánto sale
+    - oye cuánto cuesta
+#
+# Payment Data
+#
+# En que consiste el Beneficio
+- intent: how_it_works
+# Cual es mi saldo
+- intent: payment_amount_info
+# Hasta cuando tengo para pagar sin que cambie mi saldo
+- intent: payment_date_info
+  examples: |
+    - Hasta cuando tengo para pagar sin que cambie mi saldo
+    - cuendo puedo pagar mi saldo
+    - cuando debo pagar
+    - cuando se vence
+    - cuando tengo que pagar
+    - cuanto tiempo tengo para pagar
+    - para pagar cuanto tiempo tengo
+    - Hasta cuando tengo para pagar
+    - Señorita, hasta cuando tengo para pagar
+    - Cuando vence la mensualidad
+    - Cual dijo que es la fecha de vencimiento
+    - Cuando dijo que es la fecha de vencimiento de la póliza
+    - me repite la fecha de vencimiento
+    - me repite la fecha de vencimiento de la póliza
+    - me repite la fecha de vencimiento, por favor
+    - Señorita, cuando dijo que vence
+    - Señorita, Cuando dijo que vence la póliza
+    - Señorita, hasta cuando tengo para pagar la póliza
+    - Que día vence
+    - Que día vence la póliza
+    - perdón, que día dijo que vence
+    - perdón, que día dijo que vence la póliza
+    - perdón , cuando vence
+    - perdón, cuando vence la póliza
+    - no le escuché bien, cuando vence
+    - no le escuchué bien, cuando vence la poliza
+    - me puede repetir la fecha de vencimiento por favor
+    - me puede repetir la fecha de vencimiento de la poliza por favor
+    - me puede repetir la fecha de vencimiento de la poliza
+    - Perdón no eschué bien, puede repetrime la fecha de vencimiento, por favor
+    - Como dijo Hasta cuando puedo pagar
+    - Señorita, me repite la fecha de vencimiento por favor
+    - hasta qué día tengo para hacer mis pagos
+    - cuál es mi último día de pago
+    - cuál es mi fecha de vencimiento
+    - cuál es el saldo de este mes
+    - si cuándo puedo pagar
+# Donde realizar el pago
+- intent: payment_info
+  examples: |
+    - donde debo pagar
+    - donde pago
+    - donde depositó
+    - para realizar el deposito a donde voy
+    - Donde puedo pagar
+    - Puedo pagar en  el Oxxo
+    - Puedo pagar en farmacias Guadalajara
+    - En que bancos puedo pagar
+    - Le puedo pagar con tranferncia
+    - Puedo pagar con tarjeta de crédito
+    - Puedo pagar con tarjeta de debito
+    - Puedo pagar con la tarjeta de un familiar
+    - Puedo pagar con la tarjeta de credito de mi papá
+    - Puedo pagar con la tarjeta de credito de mi mamá
+    - Puedo pagar con la tarjeta de credirto de mi hermana
+    - Puedo pagar con la tarjeta de credirto de mi hermano
+    - Puedo pagar con la tarjeta de credirto de mi esposa
+    - Puedo pagar con la tarjeta de credirto de mi esposo
+    - Puedo pagar con la tarjeta de credirto de mi hijo
+    - Puedo pagar con la tarjeta de credirto de mi hija
+    - en qué banco debo realizar el pago
+    - dónde puedo hacer el pago
+    - me puede dar el saldo a pagar
+    - dónde voy a pagar
+# Puedo dar un abono
+- intent: partial_payment
+  examples: |
+    - No puedo realizar el pago completo
+    - Puedo dar un abono
+    - Si no completo el monto, puedo realizar un abono
+    - 
+# No quiere realizar el pago
+- intent: payment_deny
+  examples: |
+    - Oiga, [no estoy de acuerdo se me hace mucho el monto de la póliza](payment_reason)
+    - está muy fea la situación
+    - [no cuento con el dinero ahora](payment_reason)
+    - eh [no cuento con dinero ahora](payment_reason)
+    - no voy a poder hacer el pago
+    - no cuento con dinero
+    - no creo que lo pueda hacer este mes

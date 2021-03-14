@@ -1,58 +1,132 @@
+
 version: "2.0"
 rules:
+## Fallback 
+#
+#
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_repeat
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
-- rule: Say costs any time the user says costs
+- rule: Say `hello` when the user starts a conversation with intent `greet`
+  conversation_start: true
   steps:
-  - intent: cost
-  - action: utter_costs
-- rule: Repeat las intent answer 
-  condition:
-  - active_loop: policy_form
-  steps:
-  - intent: repeat_question
-  - action: utter_repeat
-- rule: Say how the policy works
-  steps:
-  - intent: how_it_works
-  - action: utter_how_it_works
+  - intent: greet
+  - action: utter_greet
 
-- rule: Submit form
-  condition:
-  - active_loop: policy_form
+#
+# Payment Responses
+#
+- rule: Payment Intent data
   steps:
-  - action: policy_form
+  - intent: payment_intent
+  - action: utter_payment_intent
+#
+#
+#
+- rule: Say payment ammount
+  steps:
+  - intent: payment_amount_info
+  - action: utter_payment_ammount_info
+#
+#
+#
+- rule: Say payment date
+  steps:
+  - intent: payment_date_info
+  - action: utter_payment_date_info
+#
+# Payment was set
+#
+- rule: Say payment ammount
+  condition:
+  - slot_was_set:
+    - accept_payment: true
+  steps:
+  - intent: payment_amount_info
+  - action: utter_payment_ammount_info
+- rule: Say payment date
+  condition:
+  - slot_was_set:
+    - accept_payment: true
+  steps:
+  - intent: payment_date_info
+  - action: utter_payment_date_info
+- rule: Say payment date
+  steps:
+  - intent: payment_info
+  - action: utter_payment_info
+#
+# Handover to Agent
+#
+- rule: Handover
+  steps:
+  - intent: handover
+  - action: utter_handover
+##
+##
+## Forms Submit
+##
+##
+- rule: Submit form payment accept
+  condition:
+  - active_loop: payment_form
+  steps:
+  - action: payment_form
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - action: utter_submit
-
-- rule: Submit form woman
+  - action: action_new_policy_message
+- rule: Submit form payment reject
   condition:
-  - active_loop: policy_form_woman
+  - active_loop: reject_payment_form
   steps:
-  - action: policy_form
+  - action: reject_payment_form
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - action: utter_submit
-
-- rule: PolicyMan
+  - action: utter_payment_reject
+##
+##
+## Forms Init
+##
+##
+- rule: Start form payment accept
   condition:
   - slot_was_set:
-    - sex: man
+    - accept_payment: null
   steps:
   - intent: confirm
-  - action: policy_form
-  - active_loop: policy_form
-
-- rule: PolicyWoman
+  - action: utter_payment_accept
+  - action: payment_form
+  - active_loop: payment_form
+- rule: Start form payment accept
   condition:
   - slot_was_set:
-    - sex: woman
+    - accept_payment: null
   steps:
-  - intent: confirm
-  - action: policy_form
-  - active_loop: policy_form
+  - intent: payment_done
+  - action: utter_payment_accept
+  - action: payment_form
+  - active_loop: payment_form
+
+- rule: Start form payment reject
+  condition:
+  - slot_was_set:
+    - accept_payment: null
+  steps:
+  - intent: deny
+  - action: reject_payment_form
+  - active_loop: reject_payment_form
+- rule: Start form payment reject
+  condition:
+  - slot_was_set:
+    - accept_payment: null
+  steps:
+  - intent: payment_deny
+  - action: reject_payment_form
+  - active_loop: reject_payment_form

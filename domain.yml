@@ -4,15 +4,27 @@ session_config:
 intents:
 - greet
 - goodbye
-- city_of_origin
 - inform
 - confirm
 - deny
 - cost
-- how_it_works
+- bot_challenge
+#
+# Question Handler
+#
 - wrong_input
 - repeat_question
-- bot_challenge
+#
+# Customer Intents
+#
+- how_it_works
+#
+# Payment to Client
+#
+- payment_date_info
+- payment_amount_info
+- payment_info
+- partial_payment
 entities:
 - city
 - sex
@@ -49,93 +61,53 @@ slots:
     type: text
 responses:
   utter_greet:
-  - text: Muy bien profesor {name}, mi nombre es Sari Agente de OZCE Seguros, le llamo
-      porque el Profesor Juan Manuel Ríos Ortega me pidió que le llamara, para explicarle
-      los grandes beneficios de contar con un seguro de Gastos Médicos Mayores, que
-      cubra el covid y otros gastos médicos más, podría hacerle unas preguntas?
-  utter_repeat:
-  - text: Claro que sí la pregunta fue.
-  utter_wrong_input_Acity:
-  - text: Que quisieras poder corregir? Tengo que eres de {Acity} .
-  utter_wrong_input_Bdbo:
-  - text: Que quisieras poder corregir? Tengo que naciste el {Bdbo} y que eres de {Acity}.
-  utter_wrong_input_Dappointment:
-  - text: Que quisieras poder corregir? Tengo que tu cita es para el {Dappointment}.
-      Que naciste el {Bdbo} y que eres de {Acity}.
-  utter_city_of_origin:
-  - text: Disculpe, para ofrecerle una mejor propuesta, podría decirme ¿en qué ciudad
-      vive usted?
-  utter_age_question:
-  - text: Ha muy bien gracias y ¿En qué año nació usted {name}?,
-  utter_sms:
-  - text: Para su comodidad, le enviaré por mensaje para que conozca a detalle los
-      beneficios de las opciones que tenemos para ud. así como las formas de pago.
-  utter_appointment:
-  - text: Por último, profesor, cuando le puedo llamar para dispar dudas de las opciones
-      que le acabo de enviar?
-  utter_happy:
-  - text: Muy bien, tambien.
-  utter_costs:
-  - text: El costo depende de muchos factores, para ello necesitamos que complete
-      las preguntas
+  - text: Muy bien Estimado {name}, Cimaco le ofrece un Beneficio para poner al corriente su cuenta, 
+          su credito es muy importante para nosotros por lo que le solicitamos el pago de su saldo vencido
+          lo antes posible. Requiere más información del beneficio?
   utter_goodbye:
   - custom:
       status: end_conversation
-    text: Profesor {name} muchas gracias por su atención y el nos estaremos comunicando
-      con usted
+    text: Estimado {name} muchas gracias por su atención.
   utter_iamabot:
-  - text: Me llamo Sari; y le marco a nombre del Profesor Juan Manuel Ríos Ortega,
-      soy un Agente de OZCE Seguros.
-  utter_submit:
-  - custom:
-      status: sms
-    text: Pefecto gracias por los datos
-  - custom:
-      status: sms
-    text: Gracias por los datos.
-  utter_how_it_works:
-  - text: Claro, al final de contestar la preguntas, un agente se contactar con usted
-      para finalizar los detalles.
-  utter_ask_Bdbo:
-  - text: Ha esa es una muy bonita ciudad. ¿En qué año nació usted {name}?
-  utter_ask_Acity:
-  - text: Disculpe, para ofrecerle una mejor propuesta, podría decirme ¿en qué ciudad
-      vive usted?
-  utter_ask_Cmaternity:
-  - text: Estaría interesada en tener coberturade maternidad?
-  utter_ask_Dappointment:
+  - text: Me llamo Sari y soy un Agente de OZCE Seguros.
+  utter_repeat:
+  - text: Claro que sí la pregunta fue.
+  utter_sms:
   - text: Para su comodidad, le enviaré por mensaje para que conozca a detalle los
       beneficios de las opciones que tenemos para ud. así como las formas de pago.
-      Por último, profesor, cuando le puedo llamar para dispar dudas de las opciones
-      que le acabo de enviar?
+  utter_happy:
+  - text: Muy bien, tambien.
+
+
+# Payment Responses
+  utter_how_it_works:
+  - text: Consiste en el descuento de un porcentaje de interes moratorio. Quisera hablar con un agente? 
+  utter_costs:
+  - custom:
+      status: handover
+    text: En estos lo comunicaremos con un agente para resolver estas dudas.
+  utter_payment_info:
+  - text: El pago se puedre realizr en cuanquier tienda Cimaco, en www.cimaco.com o en bancos.
+  utter_payment_ammount_info:
+  - custom:
+      status: handover
+    text: En estos lo comunicaremos con un agente para resolver estas dudas.
+  utter_payment_date_info:
+  - custom:
+      status: handover
+    text: Al presentar saldo vencido se requiere el pago inmediato.
+  utter_payment_partial:
+    text: Si es posible dar un pago parcial, pero el beneficio aplica hasta que el saldo vencido se liquide completamente.
+  utter_submit:
+  - custom:
+      status: handover
+      payment: success
+    text: Pefecto es esto momento lo comunicaremos con un agente.
+
 actions:
 - action_slot_reset
 - action_slot_query
 - action_session_start
 forms:
-  policy_form:
-    Acity:
-    - entity: city
-      intent: city_of_origin
-      type: from_entity
-    Bdbo:
-    - entity: time
-      type: from_entity
-    Dappointment:
-    - entity: time
-      type: from_entity
-  policy_form_woman:
-    Acity:
-    - entity: city
-      intent: city_of_origin
-      type: from_entity
-    Bdbo:
-    - entity: time
-      type: from_entity
-    Cmaternity:
-    - intent: confirm
-      type: from_trigger_intent
-      value: accept
-    Dappointment:
-    - entity: time
-      type: from_entity
+
+ 
