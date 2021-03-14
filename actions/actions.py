@@ -100,7 +100,6 @@ class ValidatePolicyForm(Action):
 class ValidatePaymentForm(Action):
     def name(self) -> Text:
         return "payment_form"
-
     def run(
         self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
