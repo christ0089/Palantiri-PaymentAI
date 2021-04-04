@@ -41,7 +41,7 @@ rules:
 - rule: Say payment Done
   steps:
   - intent: payment_accept
-  - action: handover
+  - action: utter_handover
 - rule: Say payment ammount
   condition:
   - slot_was_set:

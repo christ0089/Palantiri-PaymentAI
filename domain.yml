@@ -133,4 +133,3 @@ actions:
 - action_slot_reset
 - action_slot_query
 - action_session_start
-forms: 
