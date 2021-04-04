@@ -27,6 +27,8 @@ intents:
     use_entities: true
 - payment_date_info:
     use_entities: true
+- payment_accept:
+    use_entities: true
 - payment_amount_info:
     use_entities: true
 - payment_info:
