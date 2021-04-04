@@ -38,6 +38,10 @@ rules:
   steps:
   - intent: payment_done
   - action: utter_payment_done
+- rule: Say payment Done
+  steps:
+  - intent: payment_accept
+  - action: handover
 - rule: Say payment ammount
   condition:
   - slot_was_set:

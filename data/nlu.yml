@@ -631,3 +631,12 @@ nlu:
     - no voy a poder hacer el pago
     - no cuento con dinero
     - no creo que lo pueda hacer este mes
+
+- intent: payment_accept
+  examples: |
+    - quiero pagar
+    - ahorita puedo realizar el pago
+    - esta bien voy a pagar
+    - lo voy a pagar
+    - quiero realizar el pago
+    

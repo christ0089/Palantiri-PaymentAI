@@ -110,6 +110,8 @@ responses:
   - text: Al presentar saldo vencido se requiere el pago inmediato. Cual es alguna otra duda que le puedo resolver?
   utter_payment_partial:
   - text: Si es posible dar un pago parcial, pero el beneficio aplica hasta que el saldo vencido se liquide completamente.
+  utter_payment_accept:
+  - text: Si es posible dar un pago parcial, pero el beneficio aplica hasta que el saldo vencido se liquide completamente.
   utter_payment_done:
   - text: Muchas gracias por su pago y disculpa las molestias.
   utter_submit:
@@ -129,5 +131,4 @@ actions:
 - action_slot_reset
 - action_slot_query
 - action_session_start
-forms: {}
-e2e_actions: []
+forms: 
