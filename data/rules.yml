@@ -23,6 +23,13 @@ rules:
   - intent: confirm
   - action: utter_question_start
 #
+#
+#
+- rule: User asks how it works 
+  steps:
+  - intent: how_it_works
+  - action: handover
+#
 # Payment Responses
 #
 - rule: Payment Info
