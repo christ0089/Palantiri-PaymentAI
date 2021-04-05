@@ -60,3 +60,7 @@ rules:
   steps:
   - intent: handover
   - action: utter_handover
+- rule: Partial Payment
+  steps:
+  - intent: partial_payment
+  - action: utter_payment_partial
