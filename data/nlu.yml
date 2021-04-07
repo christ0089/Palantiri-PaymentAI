@@ -1,8 +1,5 @@
 version: "2.0"
 nlu:
-#
-# Greetings 
-#
 - intent: greet
   examples: |
     - hola
@@ -92,11 +89,8 @@ nlu:
     - cuelgo bye
     - ya me voy nos vemos
     - ella luego
-
-
-#
-# General Response Data
-#
+    - es todo gratis
+    - es gracioso luego
 - intent: repeat_question
   examples: |
     - me lo podrías repetir
@@ -124,9 +118,6 @@ nlu:
     - oye pero me equivoqué
     - me equivoqué
     - oye me equivoqué perdón
-#
-# Confirmation and Deny Intents
-#
 - intent: confirm
   examples: |
     - si
@@ -239,6 +230,7 @@ nlu:
     - sí está bien
     - pero sí
     - ok está bien
+    - está bien
 - intent: deny
   examples: |
     - no
@@ -279,6 +271,7 @@ nlu:
     - ni de broma
     - okay bye
     - el once de julio
+    - no señorita quiero realizar el pago
 - intent: bot_challenge
   examples: |
     - eres un bot?
@@ -339,12 +332,6 @@ nlu:
     - el [12](time) de junio
     - en [1996](time)
     - para pasado [mañana](time)
-- synonym: bots
-  examples: |
-    - skynet
-    - siri
-    - alexa
-    - google home
 - intent: cost
   examples: |
     - cual es el costo
@@ -421,7 +408,6 @@ nlu:
     - cuánto cuesta
     - cuánto sale
     - oye cuánto cuesta
-
 - intent: handover
   examples: |
     - Me pude expplicar la cobertura de la póliza
@@ -438,14 +424,10 @@ nlu:
     - quiero hablar con mi agente
     - donde esta mi agente
     - oiga y quiero hablar con alguien
-#
-# Payment Data
-#
-# En que consiste el Beneficio
 - intent: how_it_works
   examples: |
     - en que consiste el beneficio?
-    - que es eso 
+    - que es eso
     - que es el beneficio
     - como me apoya el beneficio
     - como funciona
@@ -458,7 +440,17 @@ nlu:
     - cuénta me cómo funciona aquí
     - y cómo funciona esto
     - cómo funciona esto
-# Cual es mi saldo
+    - cual es el beneficio
+    - de que trata eso
+    - que es el beneficio o que onda
+    - a ver que es eso de un beneficio
+    - platique mas de ese beneficio
+    - que es eso de un beneficio
+    - pues por eso en el beneficio de qué se trata
+    - sí que de qué se trata
+    - en qué consiste el beneficio
+    - Cual es el beneficio
+    - En que consiste el beneficio
 - intent: payment_amount_info
   examples: |
     - cuanto debo
@@ -545,10 +537,10 @@ nlu:
     - este cuánto se debe
     - cuánto es de este mes
     - cuanto es mi saldo
-    - cuale es mi saldo 
+    - cuale es mi saldo
     - me puedes decir mi saldo actual
     - de mi saldo cuanto se debe pagar
-# Hasta cuando tengo para pagar sin que cambie mi saldo
+    - señorita cuánto dijo que era
 - intent: payment_date_info
   examples: |
     - Hasta cuando tengo para pagar sin que cambie mi saldo
@@ -588,7 +580,7 @@ nlu:
     - cuál es mi fecha de vencimiento
     - cuál es el saldo de este mes
     - si cuándo puedo pagar
-# Donde realizar el pago
+    - y cuando dijo que vence
 - intent: payment_info
   examples: |
     - donde debo pagar
@@ -615,13 +607,13 @@ nlu:
     - dónde puedo hacer el pago
     - me puede dar el saldo a pagar
     - dónde voy a pagar
-# Puedo dar un abono
+    - puedo pagar con tarjeta de crédito de mi mamá
+    - de todo pagar con tarjeta de crédito de mi mamá
 - intent: partial_payment
   examples: |
     - No puedo realizar el pago completo
     - Puedo dar un abono
     - Si no completo el monto, puedo realizar un abono
-# No quiere realizar el pago
 - intent: payment_deny
   examples: |
     - Oiga, [no estoy de acuerdo se me hace mucho el monto de la póliza](payment_reason)
@@ -631,7 +623,6 @@ nlu:
     - no voy a poder hacer el pago
     - no cuento con dinero
     - no creo que lo pueda hacer este mes
-
 - intent: payment_accept
   examples: |
     - quiero pagar
@@ -639,4 +630,9 @@ nlu:
     - esta bien voy a pagar
     - lo voy a pagar
     - quiero realizar el pago
-    
+- synonym: bots
+  examples: |
+    - skynet
+    - siri
+    - alexa
+    - google home
